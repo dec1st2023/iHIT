@@ -1,0 +1,41 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Local environments
+.venv/
+venv/
+env/
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Large local assets kept outside the reproducible code path
+/data/*
+
+checkpoint/
+output/
+*.pth
+*.pt
+*.ckpt
+*.sqlite3
+
+# Generated media and notebooks
+*.ipynb_checkpoints/
+*.flo
+*.mp4
+*.avi
+
+# Bundled third-party source is tracked when its license permits redistribution.
+# Track the default RAFT checkpoint used by config.yaml; keep other RAFT weights out.
+RAFT/model/*.pth
+RAFT/*.pth
+!RAFT/model/raft-things.pth

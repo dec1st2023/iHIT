@@ -1,0 +1,40 @@
+# Run mode: train, evaluate, or all.
+mode: all
+
+# Model stage: stage1 (RAFT flow classifier), stage2 (LSTM polarity classifier), or full.
+stage: full
+
+# Training stage used only when mode is train or all: stage1, stage2, or full.
+train_stage: full
+
+# Base directory for timestamped run outputs.
+output_dir: output
+
+# Random seed used for dataset rebuild splits.
+seed: 42
+
+data:
+  # Active dataset root. The code derives raw/label/flow/position paths from this.
+  root: data
+
+checkpoints:
+  # Optional stage-1 checkpoint for evaluate mode.
+  stage1: checkpoint\stage1.pth
+  # Optional stage-2 checkpoint for evaluate mode.
+  stage2: checkpoint\stage2.pth
+  # RAFT checkpoint used when optical flow must be generated.
+  raft: RAFT/model/raft-things.pth
+
+training:
+  # Samples per batch.
+  batch_size: 64
+  # DataLoader worker processes. Use 0 on Windows if multiprocessing is unstable.
+  workers: 4
+  # Training epochs per selected stage.
+  epochs: 80
+  # Adam learning rate.
+  lr: 0.001
+  # Save the validation-best checkpoint for test evaluation. false keeps the final epoch checkpoint.
+  use_best_val_checkpoint: true
+  # Device: auto prefers CUDA/GPU when available, then falls back to CPU. You may also set cuda or cpu.
+  device: auto
