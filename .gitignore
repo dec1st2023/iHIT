@@ -20,13 +20,8 @@ Thumbs.db
 
 # Large local assets kept outside the reproducible code path
 /data/*
-
-checkpoint/
 output/
-*.pth
-*.pt
-*.ckpt
-*.sqlite3
+
 
 # Generated media and notebooks
 *.ipynb_checkpoints/
